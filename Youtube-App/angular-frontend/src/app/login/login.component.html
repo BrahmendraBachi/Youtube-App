@@ -1,0 +1,26 @@
+<div class="container w-25 mt-5">
+ <div class="text-center">
+  <img src="https://i.pinimg.com/originals/09/f4/72/09f4726125ab5fa8cbcf754b9ba07e7c.jpg" alt="logo"
+   class="logo-size img-fluid" />
+ </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="container-fluid">
+  <div class="col-md-6 offset-md-3 p-5">
+   <h1 class="text-align-center text-center">Login Page</h1>
+   <small class="text-danger"> {{msg}} </small>
+   <form (ngSubmit)="onSubmit()">
+    <div class="orm-group">
+     <label>Enter your Email Id</label>
+     <input type="text" class="form-control" id="username" [(ngModel)]="login.username" name="username">
+    </div>
+  
+    <div class="orm-group">
+     <label>Enter your Password</label>
+     <input type="password" class="form-control" id="password" [(ngModel)]="login.password" name="password">
+    </div>
+    <h4></h4>
+    <button class="btn btn-success text-align-center" type="submit"> Log in </button>
+   </form>
+  </div>
+

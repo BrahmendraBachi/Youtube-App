@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" (click)="userpage(username)">
+      <img src=" https://i.pinimg.com/originals/09/f4/72/09f4726125ab5fa8cbcf754b9ba07e7c.jpg " alt="logo"
+        class="logo-size" />
+    </a>
+    <div class="collapse navbar-collapse">
+      <form class="d-flex w-75">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search"
+          autocomplete="off" [(ngModel)]="search" />
+        <button class="btn btn-outline-success" type="submit" (click)="Search()">Search</button>
+      </form>
+    </div>
+    <div class="d-flex">
+      <ul class="navbar-nav me-auto mb-2">
+        <li class="nav-item"><button (click)="MyChannel(username)" class="btn btn-light nav-link">My Channel</button>
+        </li>
+        <li class="nav-item"><a routerLink="/Logout" class="mx-2 nav-link">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="ex1">
+ <h3>My Channel</h3>
+ <div class="ex2 ">
+  <div class="w3-display-left">
+   <div class="card h-100" >
+    <div class="col-3 circle">
+     <img src="{{ channel.logo }}" alt="channel logo" class="col-3 circle" />
+    </div>
+      <div class="container-title">
+       <strong>{{ channel.channelName }}<i class="fa-solid fa-circle-check"></i></strong>
+      </div>
+     <!-- <div class="row mt-2 mx-2"> -->
+
+      <p class="mx-2">
+       <button type="button" class="btn btn-outline-danger mx-2" (click)="Upload()">Upload New Video</button>
+      </p>
+     <!-- </div> -->
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="container mt-3">
+  <h3>My Videos</h3>
+  <div class="row my-3">
+    <div class="col-3 my-3" *ngFor="let video of videos">
+      <div class="card h-100" (click)="open(video.id)">
+        <img class="card-img-top" src="{{ video.thumbnail }}" alt="Card image cap" />
+        <div class="row mt-2 mx-2">
+          <div class="col-3 circle">
+            <img src="{{ video.logo }}" alt="channel logo" class="col-3 circle" />
+          </div>
+
+          <div class="col-9 mt-2 mx-2">
+            <div class="container-title">
+              <strong>{{ video.title }}</strong>
+            </div>
+          </div>
+          <div class="row mt-2 mx-2">
+            <p class="mx-2">{{ video.channelTitle }} <i class="fa-solid fa-circle-check"></i></p>
+
+            <pre class="mx-2">{{ video.likes }} Likes.</pre>
+            <button type="button" class="btn btn-outline-danger mx-2" (click)="Edit(video.id)">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

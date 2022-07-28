@@ -1,0 +1,38 @@
+<app-no-channel></app-no-channel>
+<div class="container w-25 mt-5">
+ <div class="text-center">
+  <img src="https://i.pinimg.com/originals/09/f4/72/09f4726125ab5fa8cbcf754b9ba07e7c.jpg" alt="logo"
+   class="logo-size img-fluid" />
+ </div>
+</div>
+<div class="container p-5">
+ <div class="row">
+  <div class="col-md-6 offset-md-3">
+   <div class="card">
+    <div class="card-body">
+     <h4 class="text-center text-primary">New Channel Details</h4>
+     <form (ngSubmit)="onSubmit()">
+
+      <div class="orm-group">
+       <label> Enter your Channel Name </label>
+       <input type="text" class="form-control" id="channelName" [(ngModel)]="channel.channelName" name="channelName">
+       <!-- <small class="text-danger" *ngIf="!title.valid">Title is required</small> -->
+      </div>
+
+      <div class="orm-group my-3">
+       <label> Enter your EmailId </label>
+       <input type="text" class="form-control" id="username" [(ngModel)]="channel.username" name="username">
+      </div>
+
+      <div class="orm-group my-3">
+       <label> Enter Logo Url </label>
+       <input type="email" class="form-control" id="logo" [(ngModel)]="channel.logo" name="logo">
+      </div>
+
+      <button class="btn btn-primary btn-block">Create</button>
+     </form>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

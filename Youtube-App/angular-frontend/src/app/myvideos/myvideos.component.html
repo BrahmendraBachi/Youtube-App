@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="container-fluid">
+  <a class="navbar-brand" (click)="userpage(username)">
+   <img src=" https://i.pinimg.com/originals/09/f4/72/09f4726125ab5fa8cbcf754b9ba07e7c.jpg " alt="logo"
+    class="logo-size" />
+  </a>
+  <div class="collapse navbar-collapse">
+   <form class="d-flex w-75">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search"
+     autocomplete="off" [(ngModel)]="search" />
+    <button class="btn btn-outline-success" type="submit" (click)="Search()">Search</button>
+   </form>
+  </div>
+  <div class="d-flex">
+   <ul class="navbar-nav me-auto mb-2">
+    <li class="nav-item"><button (click)="MyChannel(username)" class="btn btn-light nav-link">My Channel</button></li>
+    <li class="nav-item"><a routerLink="/Logout" class="mx-2 nav-link">Log out</a></li>
+   </ul>
+  </div>
+ </div>
+</nav>
+<div class="conatiner my-5 mx-5">
+ <div class="row">
+  <div class="col-8">
+   <div class="ratio ratio-16x9">
+    <iframe width="560" height="315" [src]="url !== '' ? getSanitizedURL(url) : ''" title="YouTube video player"
+     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+     allowfullscreen></iframe>
+   </div>
+   <div class="row mt-2">
+    <h4>{{ video.title }}</h4>
+   </div>
+   <div class="row mt-2">
+    <div class="col d-flex align-items-start">
+     <p><strong>{{ video.likes }}</strong> likes . </p>
+    </div>
+    <div class="col">
+     <a (click)="like()" class="mx-3 text-decoration-none text-dark"><i
+       class="fa-solid fa-thumbs-up mx-2 like-h "></i></a>
+    </div>
+    <div class="row px-2">{{ video.description }}</div>
+    <div class="row">
+     <span class="text-primary" [innerText]="url !== '' ? getSanitizedURL(url) : ''"></span>
+    </div>
+
+   </div>
+  </div>
+ </div>
+</div>
+<div class="container mt-6">
+ <div class="container mt-3">
+  <div class="row my-3">
+   <div class="col-3 my-3" *ngFor="let video of myremainingVideos">
+    <div class="card h-100" (click)="open(video.id)">
+     <img class="card-img-top" src="{{ video.thumbnail }}" alt="Card image cap" />
+     <div class="row mt-2 mx-2">
+      <div class="col-3 circle">
+       <img src="{{ video.logo }}" alt="channel logo" class="col-3 circle" />
+      </div>
+
+      <div class="col-9 mt-2 mx-2">
+       <div class="container-title">
+        <strong>{{ video.title }}</strong>
+       </div>
+      </div>
+      <div class="row mt-2 mx-2">
+       <p class="mx-2">{{ video.channelTitle }} <i class="fa-solid fa-circle-check"></i></p>
+       <pre class="mx-2">{{ video.likes }} Likes. </pre>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

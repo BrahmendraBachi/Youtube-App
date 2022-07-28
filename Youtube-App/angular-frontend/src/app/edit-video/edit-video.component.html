@@ -1,0 +1,43 @@
+<div class="container w-25 mt-5">
+ <div class="text-center">
+  <img src="https://i.pinimg.com/originals/09/f4/72/09f4726125ab5fa8cbcf754b9ba07e7c.jpg" alt="logo"
+   class="logo-size img-fluid" />
+ </div>
+</div>
+<div class="container p-5">
+ <div class="row">
+  <div class="col-md-6 offset-md-3">
+   <div class="card">
+    <div class="card-body">
+     <h4 class="text-center text-primary">Edit Details</h4>
+     <form (ngSubmit)="onSubmit()">
+
+      <div class="orm-group">
+       <label> Title of the video </label>
+       <input type="text" class="form-control" id="title" [(ngModel)]="video.title" name="title">
+      </div>
+
+      <div class="orm-group my-3">
+       <label> Video Url </label>
+       <input type="text" class="form-control" id="videoUrl" [(ngModel)]="video.videoUrl" name="videoUrl">
+      </div>
+
+      <div class="orm-group my-3">
+       <label> Thumbnail Url </label>
+       <input type="email" class="form-control" id="thumbnail" [(ngModel)]="video.thumbnail" name="thumbnail">
+      </div>
+
+      <div class="orm-group my-3">
+       <label> Description </label>
+       <textarea class="form-control" rows="3" [(ngModel)]="video.description" name="description" autocomplete="off"
+        #description="ngModel" required></textarea>
+      </div>
+
+
+      <button class="btn btn-primary btn-block">Upload</button>
+     </form>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
